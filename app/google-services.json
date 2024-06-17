@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "190997805947",
+    "project_id": "mathongoassignment",
+    "storage_bucket": "mathongoassignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190997805947:android:94540c301ff59da543dbde",
+        "android_client_info": {
+          "package_name": "com.smitcoderx.mathongoassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190997805947-ng9g1gtg7so1btahlr80fpr19he2l3br.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smitcoderx.mathongoassignment",
+            "certificate_hash": "0378d62be14a5ef686071edb671b8a67a6273b8d"
+          }
+        },
+        {
+          "client_id": "190997805947-eq9uqvmq83comugtgj8hptpbe26sskdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL9aw4LBpATusE2-cCB8xuW0turfpfOKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190997805947-eq9uqvmq83comugtgj8hptpbe26sskdf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
