@@ -42,14 +42,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loginViewModel.loginLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is ResponseState.Success -> {
+                    hideLoading()
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
                 }
 
                 is ResponseState.Loading -> {
-
+                    showLoading()
                 }
 
                 is ResponseState.Error -> {
+                    hideLoading()
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                 }
 
@@ -76,16 +78,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun createSignInRequest(): GetCredentialRequest {
-        val option = GetGoogleIdOption.Builder()
-            .setFilterByAuthorizedAccounts(false)
-            .setAutoSelectEnabled(true)
-            .setServerClientId(BuildConfig.webClientId)
-            .build()
+        val option = GetGoogleIdOption.Builder().setFilterByAuthorizedAccounts(false)
+            .setAutoSelectEnabled(true).setServerClientId(BuildConfig.webClientId).build()
 
-        return GetCredentialRequest.Builder()
-            .addCredentialOption(option)
-            .build()
+        return GetCredentialRequest.Builder().addCredentialOption(option).build()
+    }
+
+    private fun hideLoading() {
+        binding.apply {
+            loading.visibility = View.GONE
+            btnLogin.visibility = View.VISIBLE
+        }
     }
 
 
+    private fun showLoading() {
+        binding.apply {
+            btnLogin.visibility = View.INVISIBLE
+            loading.visibility = View.VISIBLE
+        }
+    }
 }

@@ -5,4 +5,9 @@
     <string name="continue_with_google">Continue with google</string>
     <string name="home_fragment">Home</string>
     <string name="favourite_fragment">Favourite</string>
+    <string name="discover_tasty_and_healthy_receipt">Discover tasty and healthy receipt</string>
+    <string name="search_any_recipe">Search any recipe</string>
+    <string name="popular_recipes">Popular Recipes</string>
+    <string name="all_recipe">All recipes</string>
+    <string name="shahi_paneer">Shahi <b>Paneer</b></string>
 </resources>

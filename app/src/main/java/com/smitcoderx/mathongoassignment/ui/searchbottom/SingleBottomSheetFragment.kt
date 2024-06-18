@@ -1,4 +1,4 @@
-package com.smitcoderx.mathongoassignment.ui.single
+package com.smitcoderx.mathongoassignment.ui.searchbottom
 
 import android.os.Bundle
 import android.view.View

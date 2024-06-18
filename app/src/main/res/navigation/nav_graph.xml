@@ -34,7 +34,7 @@
     </fragment>
     <dialog
         android:id="@+id/singleBottomSheetFragment"
-        android:name="com.smitcoderx.mathongoassignment.ui.single.SingleBottomSheetFragment"
+        android:name="com.smitcoderx.mathongoassignment.ui.searchbottom.SingleBottomSheetFragment"
         android:label="fragment_single_bottom_sheet"
         tools:layout="@layout/fragment_single_bottom_sheet" />
     <fragment

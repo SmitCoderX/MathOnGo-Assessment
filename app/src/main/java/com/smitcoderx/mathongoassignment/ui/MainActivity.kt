@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.smitcoderx.mathongoassignment.R
 import com.smitcoderx.mathongoassignment.databinding.ActivityMainBinding
+import com.smitcoderx.mathongoassignment.ui.login.LoginFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

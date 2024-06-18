@@ -1,4 +1,4 @@
-package com.smitcoderx.mathongoassignment.models
+package com.smitcoderx.mathongoassignment.models.user
 
 data class UserData(
     val id: String,
