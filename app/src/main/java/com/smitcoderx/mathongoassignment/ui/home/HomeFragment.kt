@@ -8,26 +8,28 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.smitcoderx.mathongoassignment.R
 import com.smitcoderx.mathongoassignment.databinding.FragmentHomeBinding
-import com.smitcoderx.mathongoassignment.ui.home.adapter.AllRecipesAdapter
+import com.smitcoderx.mathongoassignment.models.recipe.Recipe
+import com.smitcoderx.mathongoassignment.ui.favourite.adapter.RecipesAdapter
 import com.smitcoderx.mathongoassignment.ui.home.adapter.PopularRecipesAdapter
 import com.smitcoderx.mathongoassignment.utils.ResponseState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), PopularRecipesAdapter.OnPopularRecipeClick,
+    RecipesAdapter.OnFavItemClick {
 
     private lateinit var binding: FragmentHomeBinding
     private val homeViewModel by viewModels<HomeViewModel>()
     private lateinit var popularRecipesAdapter: PopularRecipesAdapter
-    private lateinit var allRecipeAdapter: AllRecipesAdapter
+    private lateinit var allRecipeAdapter: RecipesAdapter
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
 
-        popularRecipesAdapter = PopularRecipesAdapter()
-        allRecipeAdapter = AllRecipesAdapter()
+        popularRecipesAdapter = PopularRecipesAdapter(this)
+        allRecipeAdapter = RecipesAdapter(this)
 
         handleHomePage()
 
@@ -86,5 +88,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             tvError.visibility = View.GONE
             scrollView.visibility = View.VISIBLE
         }
+    }
+
+
+    override fun onFavClick(item: Recipe) {
+        handleItemClick(item.id.toString())
+    }
+
+    override fun onPopularClick(item: Recipe) {
+        handleItemClick(item.id.toString())
+    }
+
+    private fun handleItemClick(id: String) {
+        val action = HomeFragmentDirections.actionHomeFragmentToSingleFragment3(id)
+        findNavController().navigate(action)
     }
 }

@@ -10,4 +10,22 @@
     <string name="popular_recipes">Popular Recipes</string>
     <string name="all_recipe">All recipes</string>
     <string name="shahi_paneer">Shahi <b>Paneer</b></string>
+    <string name="ready_in">Ready in</string>
+    <string name="price_serving">Price/serving</string>
+    <string name="servings">Servings</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instruction">Instruction</string>
+    <string name="equipments">Equipments</string>
+    <string name="quick_summary">Quick Summary</string>
+    <string name="nutrition">Nutrition</string>
+    <string name="bad_nutrition">Bad for health nutrition</string>
+    <string name="good_nutrition">Good for health nutrition</string>
+    <string name="ad_name">Ad Name</string>
+    <string name="ad_description">Ad Description</string>
+    <string name="favourite_recipes">Favourite recipes</string>
+    <string name="get_ingredients">Get ingredients</string>
+    <string name="get_full_recipe">Get full recipe</string>
+    <string name="get_similar_recipe">Get similar recipe</string>
+    <string name="full_recipe">Full Recipe</string>
+    <string name="similar">Similar recipes</string>
 </resources>

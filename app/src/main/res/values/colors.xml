@@ -3,10 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_color">#f1f6fd</color>
-    <color name="btn_color">#007AF6</color>
+    <color name="btn_color">#E54900</color>
     <color name="menu_item_inactive">#5B616E</color>
     <color name="heading_text_color">#061023</color>
     <color name="title_color">#171B21</color>
     <color name="card_stroke_color">#E4E5E7</color>
     <color name="heart_recipe_color">#BD244F</color>
+    <color name="grey_text_color">#606F89</color>
 </resources>

@@ -12,7 +12,7 @@ import coil.transform.CircleCropTransformation
 import com.smitcoderx.mathongoassignment.databinding.LayoutPopularRecipeItemBinding
 import com.smitcoderx.mathongoassignment.models.recipe.Recipe
 
-class PopularRecipesAdapter : Adapter<PopularRecipesAdapter.PopularRecipesViewHolder>() {
+class PopularRecipesAdapter(private val listener: OnPopularRecipeClick) : Adapter<PopularRecipesAdapter.PopularRecipesViewHolder>() {
 
     inner class PopularRecipesViewHolder(val binding: LayoutPopularRecipeItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -38,6 +38,15 @@ class PopularRecipesAdapter : Adapter<PopularRecipesAdapter.PopularRecipesViewHo
             }
             holder.binding.tvRecipe.text = title
             holder.binding.tvRecipeReady.text = "Ready in $readyInMinutes min"
+
+            holder.binding.root.setOnClickListener {
+                val adapterPosition = holder.bindingAdapterPosition
+                if(adapterPosition != RecyclerView.NO_POSITION) {
+                    if(currentItem != null) {
+                        listener.onPopularClick(currentItem)
+                    }
+                }
+            }
         }
     }
 
@@ -56,4 +65,8 @@ class PopularRecipesAdapter : Adapter<PopularRecipesAdapter.PopularRecipesViewHo
     }
 
     val differ = AsyncListDiffer(this, differCallback)
+
+    interface OnPopularRecipeClick {
+        fun onPopularClick(item: Recipe)
+    }
 }

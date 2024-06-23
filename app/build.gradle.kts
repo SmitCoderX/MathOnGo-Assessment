@@ -105,6 +105,12 @@ dependencies {
     // SDP + SSP
     implementation(libs.intuit.sdp)
     implementation(libs.intuit.ssp)
+
+    // Circle Image View
+    implementation(libs.circle.image)
+
+    // Like Button
+    implementation(libs.like.button)
 }
 
 kapt {

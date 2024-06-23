@@ -11,7 +11,6 @@ import javax.inject.Singleton
 
 @Singleton
 class SearchRepository @Inject constructor(
-    private val auth: FirebaseAuth,
     private val api: ReciipiieApi
 ) {
 

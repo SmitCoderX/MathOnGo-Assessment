@@ -4,5 +4,8 @@
 
     <corners android:radius="@dimen/_10sdp" />
     <solid android:color="@color/white" />
+    <stroke
+        android:width="0.5dp"
+        android:color="@color/card_stroke_color" />
 
 </shape>

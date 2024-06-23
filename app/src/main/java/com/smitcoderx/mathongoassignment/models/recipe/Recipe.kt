@@ -1,8 +1,11 @@
 package com.smitcoderx.mathongoassignment.models.recipe
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "recipes")
 data class Recipe(
     @SerializedName("aggregateLikes")
     var aggregateLikes: Int? = null,
@@ -30,6 +33,7 @@ data class Recipe(
     var glutenFree: Boolean? = null,
     @SerializedName("healthScore")
     var healthScore: Int? = null,
+    @PrimaryKey
     @SerializedName("id")
     var id: Int? = null,
     @SerializedName("image")

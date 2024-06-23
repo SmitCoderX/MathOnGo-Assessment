@@ -22,6 +22,10 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_singleFragment3"
+            app:destination="@id/singleFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -36,10 +40,27 @@
         android:id="@+id/singleBottomSheetFragment"
         android:name="com.smitcoderx.mathongoassignment.ui.searchbottom.SingleBottomSheetFragment"
         android:label="fragment_single_bottom_sheet"
-        tools:layout="@layout/fragment_single_bottom_sheet" />
+        tools:layout="@layout/fragment_single_bottom_sheet" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </dialog>
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.smitcoderx.mathongoassignment.ui.favourite.FavouriteFragment"
         android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favourite" />
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_singleFragment"
+            app:destination="@id/singleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleFragment"
+        android:name="com.smitcoderx.mathongoassignment.ui.single.SingleFragment"
+        android:label="fragment_single"
+        tools:layout="@layout/fragment_single" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>

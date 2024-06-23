@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_5sdp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_ingredients"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="@color/card_stroke_color"
+        app:civ_border_width="@dimen/_1sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/login_bg" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_ingredients"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/title_color"
+        app:layout_constraintEnd_toEndOf="@id/iv_ingredients"
+        app:layout_constraintStart_toStartOf="@id/iv_ingredients"
+        app:layout_constraintTop_toBottomOf="@id/iv_ingredients"
+        tools:text="Ingredients" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

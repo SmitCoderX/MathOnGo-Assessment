@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.smitcoderx.mathongoassignment.databinding.LayoutSearchItemBinding
 import com.smitcoderx.mathongoassignment.models.recipe.Recipe
 
-class SearchRecipesAdapter : Adapter<SearchRecipesAdapter.SearchItemViewHolder>() {
+class SearchRecipesAdapter(private val listener: OnSearchItemClick) :
+    Adapter<SearchRecipesAdapter.SearchItemViewHolder>() {
 
     inner class SearchItemViewHolder(val binding: LayoutSearchItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -32,6 +33,14 @@ class SearchRecipesAdapter : Adapter<SearchRecipesAdapter.SearchItemViewHolder>(
 
         currentItem.run {
             holder.binding.tvSearchItem.text = title
+            holder.binding.root.setOnClickListener {
+                val adapterPosition = holder.bindingAdapterPosition
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    if (currentItem != null) {
+                        listener.onItemClick(currentItem)
+                    }
+                }
+            }
         }
     }
 
@@ -50,4 +59,8 @@ class SearchRecipesAdapter : Adapter<SearchRecipesAdapter.SearchItemViewHolder>(
     }
 
     val differ = AsyncListDiffer(this, differCallback)
+
+    interface OnSearchItemClick {
+        fun onItemClick(recipe: Recipe)
+    }
 }

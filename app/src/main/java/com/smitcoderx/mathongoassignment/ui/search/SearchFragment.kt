@@ -7,13 +7,15 @@ import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.smitcoderx.mathongoassignment.R
 import com.smitcoderx.mathongoassignment.databinding.FragmentSearchBinding
+import com.smitcoderx.mathongoassignment.models.recipe.Recipe
 import com.smitcoderx.mathongoassignment.utils.ResponseState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : Fragment(R.layout.fragment_search) {
+class SearchFragment : Fragment(R.layout.fragment_search), SearchRecipesAdapter.OnSearchItemClick {
 
     private lateinit var binding: FragmentSearchBinding
     private val searchViewModel by viewModels<SearchViewModel>()
@@ -23,7 +25,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
 
-        searchRecipesAdapter = SearchRecipesAdapter()
+        searchRecipesAdapter = SearchRecipesAdapter(this)
+
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         binding.editSearch.setupClearButtonWithAction()
         binding.editSearch.addTextChangedListener(object : TextWatcher {
@@ -35,12 +41,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
             override fun afterTextChanged(s: Editable?) {
                 searchViewModel.getQueryRecipe(s.toString())
+                handleSearch()
             }
         })
-
-        handleSearch()
-
-
     }
 
     private fun handleSearch() {
@@ -65,11 +68,16 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         }
     }
 
-    fun EditText.setupClearButtonWithAction() {
+    private fun EditText.setupClearButtonWithAction() {
 
         addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable?) {
-                binding.btnClear.visibility = View.VISIBLE
+                if (editable.toString().isNotBlank()) {
+                    binding.btnClear.visibility = View.VISIBLE
+                } else {
+                    binding.btnClear.visibility = View.GONE
+                    searchRecipesAdapter.differ.submitList(emptyList())
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -81,8 +89,16 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         binding.btnClear.setOnClickListener {
             binding.editSearch.setText("")
+            searchRecipesAdapter.differ.submitList(emptyList())
+            binding.editSearch.clearFocus()
         }
 
+    }
+
+    override fun onItemClick(recipe: Recipe) {
+        val action =
+            SearchFragmentDirections.actionSearchFragmentToSingleBottomSheetFragment(recipe.id.toString())
+        findNavController().navigate(action)
     }
 
 }

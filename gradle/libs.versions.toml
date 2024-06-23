@@ -24,6 +24,8 @@ googleId = "1.1.0"
 secretsPlugin = "2.0.1"
 serviceAuth = "21.1.1"
 intuitVersion = "1.1.1"
+circleVersion = "3.1.0"
+likeButtonVersion = "0.2.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -78,6 +80,12 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 #Intuit SDP + SSP
 intuit-sdp = {group = "com.intuit.sdp", name = "sdp-android", version.ref = "intuitVersion"}
 intuit-ssp = {group = "com.intuit.ssp", name = "ssp-android", version.ref = "intuitVersion"}
+
+#Circle Image View
+circle-image = {group = "de.hdodenhof", name = "circleimageview", version.ref = "circleVersion"}
+
+# Like Button
+like-button = {group = "com.github.jd-alexander", name = "LikeButton", version.ref = "likeButtonVersion"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
