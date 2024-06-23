@@ -3,291 +3,279 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_20sdp">
 
-    <androidx.core.widget.NestedScrollView
+    <!--      Instruction      -->
+
+    <LinearLayout
+        android:id="@+id/ll_instruments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/inter"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/instruction"
+            android:textColor="@color/title_color"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_instruments"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:textColor="@color/grey_text_color"
+            android:textSize="@dimen/_12ssp"
+            tools:text="@tools:sample/lorem" />
 
-            <!--      Instruction      -->
+    </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_instruments"
+    <!--      Equipments      -->
+
+    <LinearLayout
+        android:id="@+id/ll_Equipments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_instruments">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/inter"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/equipments"
+            android:textColor="@color/title_color"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Equipments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/layout_ingredients" />
+
+    </LinearLayout>
+
+    <!--      Quick Summary      -->
+
+    <LinearLayout
+        android:id="@+id/ll_quick_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_Equipments">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/inter"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/quick_summary"
+            android:textColor="@color/title_color"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_quick_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:textColor="@color/grey_text_color"
+            android:textSize="@dimen/_12ssp"
+            tools:text="@tools:sample/lorem" />
+
+    </LinearLayout>
+
+    <!--    Nutrition     -->
+
+    <LinearLayout
+        android:id="@+id/ll_nutrition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:animateLayoutChanges="true"
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_quick_summary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:weightSum="1">
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_weight="0.9"
+                android:fontFamily="@font/inter"
+                android:text="@string/nutrition"
+                android:textColor="@color/title_color"
+                android:textStyle="bold" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:text="@string/instruction"
-                    android:textColor="@color/title_color"
-                    android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_drop"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/ic_border_drop" />
+        </LinearLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_instruments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:textColor="@color/grey_text_color"
-                    android:textSize="@dimen/_12ssp"
-                    tools:text="@tools:sample/lorem" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_nutrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:textColor="@color/grey_text_color"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="gone"
+            tools:text="@tools:sample/lorem" />
 
-            </LinearLayout>
+    </LinearLayout>
 
-            <!--      Equipments      -->
+    <!--    Bad for Health Nutrition     -->
 
-            <LinearLayout
-                android:id="@+id/ll_Equipments"
+    <LinearLayout
+        android:id="@+id/ll_bad_nutrition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:animateLayoutChanges="true"
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_nutrition">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:weightSum="1">
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_instruments">
+                android:layout_weight="0.9"
+                android:fontFamily="@font/inter"
+                android:text="@string/bad_nutrition"
+                android:textColor="@color/title_color"
+                android:textStyle="bold" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:text="@string/equipments"
-                    android:textColor="@color/title_color"
-                    android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_drop_bad"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/ic_border_drop" />
+        </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_Equipments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/layout_ingredients" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_bad_nutrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:textColor="@color/grey_text_color"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="gone"
+            tools:text="@tools:sample/lorem" />
 
-            </LinearLayout>
+    </LinearLayout>
 
-            <!--      Quick Summary      -->
+    <!--    Bad for Health Nutrition     -->
 
-            <LinearLayout
-                android:id="@+id/ll_quick_summary"
+    <LinearLayout
+        android:id="@+id/ll_good_nutrition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:animateLayoutChanges="true"
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_bad_nutrition">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:weightSum="1">
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_Equipments">
+                android:layout_weight="0.9"
+                android:fontFamily="@font/inter"
+                android:text="@string/good_nutrition"
+                android:textColor="@color/title_color"
+                android:textStyle="bold" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:text="@string/quick_summary"
-                    android:textColor="@color/title_color"
-                    android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_drop_good"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/ic_border_drop" />
+        </LinearLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_quick_summary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:textColor="@color/grey_text_color"
-                    android:textSize="@dimen/_12ssp"
-                    tools:text="@tools:sample/lorem" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_good_nutrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:textColor="@color/grey_text_color"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="gone"
+            tools:text="@tools:sample/lorem" />
 
-            </LinearLayout>
-
-            <!--    Nutrition     -->
-
-            <LinearLayout
-                android:id="@+id/ll_nutrition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:animateLayoutChanges="true"
-                android:background="@color/bg_color"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_quick_summary">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:weightSum="1">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.9"
-                        android:fontFamily="@font/inter"
-                        android:text="@string/nutrition"
-                        android:textColor="@color/title_color"
-                        android:textStyle="bold" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_drop"
-                        android:layout_width="@dimen/_14sdp"
-                        android:layout_height="@dimen/_14sdp"
-                        android:layout_weight="0.1"
-                        app:srcCompat="@drawable/ic_border_drop" />
-                </LinearLayout>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_nutrition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:textColor="@color/grey_text_color"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="gone"
-                    tools:text="@tools:sample/lorem" />
-
-            </LinearLayout>
-
-            <!--    Bad for Health Nutrition     -->
-
-            <LinearLayout
-                android:id="@+id/ll_bad_nutrition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:animateLayoutChanges="true"
-                android:background="@color/bg_color"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_nutrition">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:weightSum="1">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.9"
-                        android:fontFamily="@font/inter"
-                        android:text="@string/bad_nutrition"
-                        android:textColor="@color/title_color"
-                        android:textStyle="bold" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_drop_bad"
-                        android:layout_width="@dimen/_14sdp"
-                        android:layout_height="@dimen/_14sdp"
-                        android:layout_weight="0.1"
-                        app:srcCompat="@drawable/ic_border_drop" />
-                </LinearLayout>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_bad_nutrition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:textColor="@color/grey_text_color"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="gone"
-                    tools:text="@tools:sample/lorem" />
-
-            </LinearLayout>
-
-            <!--    Bad for Health Nutrition     -->
-
-            <LinearLayout
-                android:id="@+id/ll_good_nutrition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:animateLayoutChanges="true"
-                android:background="@color/bg_color"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_10sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_bad_nutrition">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:weightSum="1">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.9"
-                        android:fontFamily="@font/inter"
-                        android:text="@string/good_nutrition"
-                        android:textColor="@color/title_color"
-                        android:textStyle="bold" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_drop_good"
-                        android:layout_width="@dimen/_14sdp"
-                        android:layout_height="@dimen/_14sdp"
-                        android:layout_weight="0.1"
-                        app:srcCompat="@drawable/ic_border_drop" />
-                </LinearLayout>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_good_nutrition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:textColor="@color/grey_text_color"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="gone"
-                    tools:text="@tools:sample/lorem" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
-
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

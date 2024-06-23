@@ -29,6 +29,7 @@ class SingleRecipeViewModel @Inject constructor(
         _recipeData.value = ResponseState.Loading()
         val nutritionData = singleRecipeRepository.getNutrientsDetails(id)
         val recipeData = singleRecipeRepository.getRecipeData(id)
+        val similar = singleRecipeRepository.getSimilarData(id)
         if (recipeData.data != null && nutritionData.data != null) {
             val savedData = singleRecipeRepository.getRecipeById(recipeData.data.id.toString())
             recipeData.data.extendedIngredients?.map {
@@ -42,13 +43,15 @@ class SingleRecipeViewModel @Inject constructor(
 
             _recipeData.value = ResponseState.Success(
                 SingleDataMapper(
-                    recipe = recipeData.data, nutrition = nutritionData.data
+                    recipe = recipeData.data, nutrition = nutritionData.data,
+                    similar = similar.data?.recipes
                 )
             )
         } else {
             _recipeData.value = ResponseState.Error(recipeData.message)
         }
     }
+
 
     private fun saveRecipe(recipe: Recipe, nutritionData: NutritionData) = viewModelScope.launch {
         singleRecipeRepository.insertRecipe(recipe, nutritionData)

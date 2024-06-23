@@ -46,5 +46,11 @@ interface ReciipiieApi {
         @Query("apiKey") apiKey: String = BuildConfig.apiKey,
     ): Response<NutritionData>
 
+    @GET("recipes/{id}/similar")
+    suspend fun getSimilar(
+        @Path("id") id: String,
+        @Query("number") number: Int = 10,
+        ): Response<RecipeData>
+
 
 }

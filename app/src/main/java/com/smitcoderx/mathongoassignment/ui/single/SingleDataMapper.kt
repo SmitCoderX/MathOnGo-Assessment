@@ -5,5 +5,6 @@ import com.smitcoderx.mathongoassignment.models.recipe.Recipe
 
 data class SingleDataMapper(
     val recipe: Recipe,
-    val nutrition: NutritionData
+    val nutrition: NutritionData,
+    val similar: List<Recipe?>?
 )

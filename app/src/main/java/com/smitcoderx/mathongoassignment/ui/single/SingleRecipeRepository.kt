@@ -4,6 +4,7 @@ import com.smitcoderx.mathongoassignment.api.ReciipiieApi
 import com.smitcoderx.mathongoassignment.db.ReciipiieDao
 import com.smitcoderx.mathongoassignment.models.nutrition.NutritionData
 import com.smitcoderx.mathongoassignment.models.recipe.Recipe
+import com.smitcoderx.mathongoassignment.models.recipe.RecipeData
 import com.smitcoderx.mathongoassignment.utils.ResponseState
 import com.smitcoderx.mathongoassignment.utils.errorResponse
 import okio.IOException
@@ -58,6 +59,19 @@ class SingleRecipeRepository @Inject constructor(
         val nutrientsData = recipeDao.getNutrientsById(recipe.id.toString())
         recipeDao.deleteRecipe(recipe)
         nutrientsData?.let { recipeDao.deleteNutrients(it) }
+    }
+
+    suspend fun getSimilarData(id: String): ResponseState<RecipeData> {
+        val response = api.getSimilar(id = id)
+        return try {
+            if (response.isSuccessful) {
+                ResponseState.Success(response.body())
+            } else {
+                ResponseState.Error(errorResponse(response)?.message.toString())
+            }
+        } catch (e: IOException) {
+            ResponseState.Error(e.message)
+        }
     }
 
 }
